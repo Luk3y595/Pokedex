@@ -132,12 +132,12 @@ while True:
         typing2 = input("Enter the second typing (Normal, Grass, Water, Fire, Electric, Bug, Flying, Poison, Ground, Rock, Fighting, Psychic, Ice, Ghost, Dragon, Dark, Steel, Fairy): ")
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
-        cursor.execute("SELECT pokedex_number, pokemon FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id WHERE Typing.typing IN (?, ?) GROUP BY Pokedex.pokedex_id HAVING COUNT(DISTINCT Typing.typing) = 2", (typing1.strip(), typing2.strip()))
+        cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage FROM Pokedex JOIN Generation ON Pokedex.generation AS Generation.generation JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id WHERE Typing.typing IN (?, ?) GROUP BY Pokedex.pokedex_id HAVING COUNT(DISTINCT Typing.typing) = 2", (typing1.strip(), typing2.strip()))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon")
+            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage ")
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7}")
+                print(f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
             print("No Pokémon found with those typings.")
         db.close()
