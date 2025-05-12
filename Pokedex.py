@@ -39,7 +39,10 @@ def print_all_pokemon():
          "Evolution Stage | Types")
     )
     for pokemon in results:
-        print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+        print(
+            f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+            f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+        )
     db.close()
 
 
