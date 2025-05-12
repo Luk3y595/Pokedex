@@ -12,7 +12,27 @@ def print_all_pokemon():
     """Print all Pokémon in the database"""
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
-    cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation GROUP BY Pokedex.pokedex_id")
+    sql = ("SELECT "
+           "pokedex_number, "
+           "pokemon, "
+           "Pokedex.generation, "
+           "Generation.region, "
+           "Evolution_Stage.evolution_stage, "
+           "GROUP_CONCAT ( "
+           "DISTINCT Typing.typing "
+           "ORDER BY "
+           "Typing.typing_id) "
+           "FROM Pokedex "
+           "JOIN Typing_ID ON Pokedex.pokedex_id = "
+           "Typing_ID.pokedex_id "
+           "JOIN Typing ON Typing_ID.typing_id = "
+           "Typing.typing_id "
+           "JOIN Evolution_Stage ON Pokedex.evolution_stage_id = "
+           "Evolution_Stage.evolution_stage_id "
+           "JOIN Generation ON Pokedex.generation = "
+           "Generation.generation "
+           "GROUP BY Pokedex.pokedex_id;")
+    cursor.execute(sql)
     results = cursor.fetchall()
     print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
     for pokemon in results:
