@@ -59,7 +59,28 @@ while True:
             name = input("Enter the name of the Pokémon: ")
             db = sqlite3.connect(DATABASE)
             cursor = db.cursor()
-            cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE pokemon LIKE ? GROUP BY Pokedex.pokedex_id", (f"%{name}%",))
+            cursor.execute(
+                "SELECT pokedex_number, "
+                "pokemon, "
+                "Pokedex.generation, "
+                "Generation.region, "
+                "Evolution_Stage.evolution_stage, "
+                "GROUP_CONCAT("
+                "DISTINCT Typing.typing "
+                "ORDER BY Typing.typing_id) "
+                "FROM Pokedex "
+                "JOIN Typing_ID ON Pokedex.pokedex_id = "
+                "Typing_ID.pokedex_id "
+                "JOIN Typing ON Typing_ID.typing_id = "
+                "Typing.typing_id "
+                "JOIN Evolution_Stage ON Pokedex.evolution_stage_id = "
+                "Evolution_Stage.evolution_stage_id "
+                "JOIN Generation ON Pokedex.generation = "
+                "Generation.generation "
+                "WHERE pokemon LIKE ? "
+                "GROUP BY Pokedex.pokedex_id",
+                (f"%{name}%",)
+            )
             results = cursor.fetchall()
             if results:
                 print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
