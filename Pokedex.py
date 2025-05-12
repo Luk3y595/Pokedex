@@ -34,7 +34,10 @@ def print_all_pokemon():
            "GROUP BY Pokedex.pokedex_id;")
     cursor.execute(sql)
     results = cursor.fetchall()
-    print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+    print(
+        ("Pokedex Number | Pokemon | Generation | Region | "
+         "Evolution Stage | Types")
+    )
     for pokemon in results:
         print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
     db.close()
