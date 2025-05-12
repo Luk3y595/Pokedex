@@ -83,7 +83,10 @@ while True:
             )
             results = cursor.fetchall()
             if results:
-                print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+                print(
+                    "Pokedex Number | Pokemon | Generation | Region | "
+                    "Evolution Stage | Types"
+                )
                 for pokemon in results:
                     print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
             else:
@@ -96,7 +99,10 @@ while True:
             cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE pokedex_number LIKE ? GROUP BY Pokedex.pokedex_id", (f"%{number}%",))
             results = cursor.fetchall()
             if results:
-                print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+                print(
+                    "Pokedex Number | Pokemon | Generation | Region | "
+                    "Evolution Stage | Types"
+                )
                 for pokemon in results:
                     print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
             else:
@@ -112,7 +118,10 @@ while True:
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE Pokedex.generation = ? GROUP BY Pokedex.pokedex_id", (generation,))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+            print(
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
@@ -126,7 +135,10 @@ while True:
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE Generation.region = ? GROUP BY Pokedex.pokedex_id", (region,))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+            print(
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
@@ -134,13 +146,21 @@ while True:
         db.close()
     elif user_input == "5":
         # Search for Pokémon with a specific Evolution Stage
-        evolution_stage = input("Enter the evolution stage (Unevolved, 1st Evolution, 2nd Evolution): ")
+        evolution_stage = input(
+            (
+                "Enter the evolution stage (Unevolved, 1st Evolution, "
+                "2nd Evolution): "
+            )
+        )
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE Evolution_Stage.evolution_stage = ? GROUP BY Pokedex.pokedex_id", (evolution_stage,))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+            print(
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
@@ -154,7 +174,10 @@ while True:
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE pokemon LIKE ? GROUP BY Pokedex.pokedex_id", (f"%{regional_form}%",))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+            print(
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
@@ -168,7 +191,10 @@ while True:
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) FROM Pokedex JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Generation ON Pokedex.generation = Generation.generation WHERE Typing.typing = ? GROUP BY Pokedex.pokedex_id", (typing.strip(),))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage | Types")
+            print(
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
@@ -182,7 +208,10 @@ while True:
         cursor.execute("SELECT pokedex_number, pokemon, Pokedex.generation, Generation.region, Evolution_Stage.evolution_stage, GROUP_CONCAT(DISTINCT Typing.typing) FROM Pokedex JOIN Generation ON Pokedex.generation = Generation.generation JOIN Evolution_Stage ON Pokedex.evolution_stage_id = Evolution_Stage.evolution_stage_id JOIN Typing_ID ON Pokedex.pokedex_id = Typing_ID.pokedex_id JOIN Typing ON Typing_ID.typing_id = Typing.typing_id WHERE Typing.typing IN (?, ?) GROUP BY Pokedex.pokedex_id HAVING COUNT(DISTINCT Typing.typing) = 2", (typing1.strip(), typing2.strip()))
         results = cursor.fetchall()
         if results:
-            print("Pokedex Number | Pokemon | Generation | Region | Evolution Stage ")
+            print(
+                ("Pokedex Number | Pokemon | Generation | Region | "
+                 "Evolution Stage")
+            )
             for pokemon in results:
                 print(f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
         else:
