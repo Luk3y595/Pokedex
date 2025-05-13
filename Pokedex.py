@@ -88,7 +88,11 @@ while True:
                     "Evolution Stage | Types"
                 )
                 for pokemon in results:
-                    print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                    print(
+                        f"{pokemon[0]:<15} | {pokemon[1]:<7} | "
+                        f"{pokemon[2]:<10} | "
+                        f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                    )
             else:
                 print("No Pokémon found with that name.")
             db.close()
@@ -104,7 +108,11 @@ while True:
                     "Evolution Stage | Types"
                 )
                 for pokemon in results:
-                    print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                    print(
+                        f"{pokemon[0]:<15} | {pokemon[1]:<7} | "
+                        f"{pokemon[2]:<10} | "
+                        f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                    )
             else:
                 print("No Pokémon found with that number.")
             db.close()
@@ -123,7 +131,10 @@ while True:
                 "Evolution Stage | Types"
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("That generation has no Pokémon.")
         db.close()
@@ -140,7 +151,10 @@ while True:
                 "Evolution Stage | Types"
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("That region has no Pokémon.")
         db.close()
@@ -162,7 +176,10 @@ while True:
                 "Evolution Stage | Types"
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("That is not a valid evolution stage.")
         db.close()
@@ -179,7 +196,10 @@ while True:
                 "Evolution Stage | Types"
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("That is not a valid regional form.")
         db.close()
@@ -196,7 +216,10 @@ while True:
                 "Evolution Stage | Types"
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("No Pokémon found with that typing.")
     elif user_input == "8":
@@ -213,7 +236,10 @@ while True:
                  "Evolution Stage")
             )
             for pokemon in results:
-                print(f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | {pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}")
+                print(
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
+                )
         else:
             print("No Pokémon found with those typings.")
         db.close()
