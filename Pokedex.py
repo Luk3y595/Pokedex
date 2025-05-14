@@ -331,7 +331,7 @@ while True:
             "JOIN Generation ON Pokedex.generation = "
             "Generation.generation "
             "GROUP BY Pokedex.pokedex_id "
-            "HAVING FIND_IN_SET(?, typings);",
+            "Where Typing.typing = ?",
             (typing3.strip(),)
         )
         results = cursor.fetchall()
