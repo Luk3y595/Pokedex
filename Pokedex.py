@@ -337,14 +337,15 @@ while True:
             "Flying, Poison, Ground, Rock, Fighting, Psychic, Ice, Ghost, "
             "Dragon, Dark, Steel, Fairy): "
         )
-        typing3 = typing.capitalize()
+        typing3 = typing.title()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         # search for pokemon by typing
         cursor.execute(
-            "SELECT pokedex_number, pokemon, Pokedex.generation, "
+            "SELECT Pokedex.pokedex_number, "
+            "Pokedex.pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
-            "GROUP_CONCAT(DISTINCT Typing.typing ORDER BY Typing.typing_id) "
+            "GROUP_CONCAT(DISTINCT Typing.typing ORDER BY typing) "
             "FROM Pokedex "
             "JOIN Typing_ID ON Pokedex.pokedex_id = "
             "Typing_ID.pokedex_id "
@@ -354,8 +355,13 @@ while True:
             "Evolution_Stage.evolution_stage_id "
             "JOIN Generation ON Pokedex.generation = "
             "Generation.generation "
+            "WHERE Pokedex.pokedex_id "
+            "IN (SELECT Typing_ID.pokedex_id "
+            "FROM Typing_ID "
+            "JOIN Typing ON Typing_ID.typing_id = "
+            "Typing.typing_id WHERE Typing.typing = ?) "
             "GROUP BY Pokedex.pokedex_id "
-            "Where Typing.typing = ?",
+            "ORDER BY Pokedex.pokedex_number; ",
             (typing3.strip(),)
         )
         results = cursor.fetchall()
@@ -385,8 +391,8 @@ while True:
             "Bug, Flying, Poison, Ground, Rock, Fighting, Psychic, Ice, "
             "Ghost, Dragon, Dark, Steel, Fairy): "
         )
-        typing11 = typing1.capitalize()
-        typing22 = typing2.capitalize()
+        typing11 = typing1.title()
+        typing22 = typing2.title()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         # search for pokemon by their dual typing
@@ -413,7 +419,7 @@ while True:
         if results:
             print(
                 ("Pokedex Number | Pokemon | Generation | Region | "
-                 "Evolution Stage")
+                 "Evolution Stage | Types")
             )
             for pokemon in results:
                 print(
