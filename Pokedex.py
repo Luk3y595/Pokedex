@@ -136,7 +136,7 @@ while True:
                 "Evolution_Stage.evolution_stage_id "
                 "JOIN Generation ON Pokedex.generation = "
                 "Generation.generation "
-                "WHERE pokedex_number LIKE ? "
+                "WHERE pokedex_number = ? "
                 "GROUP BY Pokedex.pokedex_id",
                 (f"%{number}%",)
             )
@@ -161,7 +161,7 @@ while True:
             print("Invalid option. Please try again.\n")
     elif user_input == "3":
         # Search for Pokémon from a specific generation
-        generation = input("Enter the generation number "
+        generation = input("Enter the generation number\n"
                            "1.Kanto\n"
                            "2.Johto\n"
                            "3.Hoenn\n"
