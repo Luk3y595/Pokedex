@@ -37,12 +37,14 @@ def print_all_pokemon():
     results = cursor.fetchall()
     # print results neatly
     print(
-        ("Pokedex Number | Pokemon                        | Generation | Region | "
+        ("Pokedex Number | Pokemon                        "
+         "| Generation | Region | "
          "Evolution Stage | Types")
     )
     for pokemon in results:
         print(
-            f"{pokemon[0]:<14} | {pokemon[1]:<30} | {pokemon[2]:<10} | "
+            f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+            f"| {pokemon[2]:<10} | "
             f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
         )
     db.close()
@@ -103,12 +105,13 @@ while True:
             # print results neatly
             if results:
                 print(
-                    "Pokedex Number | Pokemon | Generation | Region | "
+                    "Pokedex Number | Pokemon                       "
+                    "| Generation | Region | "
                     "Evolution Stage | Types"
                 )
                 for pokemon in results:
                     print(
-                        f"{pokemon[0]:<14} | {pokemon[1]:<7} | "
+                        f"{pokemon[0]:<14} | {pokemon[1]:<30} | "
                         f"{pokemon[2]:<10} | "
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
@@ -144,12 +147,13 @@ while True:
             if results:
                 # print results neatly
                 print(
-                    "Pokedex Number | Pokemon | Generation | Region | "
+                    "Pokedex Number | Pokemon                       "
+                    "| Generation | Region | "
                     "Evolution Stage | Types"
                 )
                 for pokemon in results:
                     print(
-                        f"{pokemon[0]:<14} | {pokemon[1]:<7} | "
+                        f"{pokemon[0]:<14} | {pokemon[1]:<30} | "
                         f"{pokemon[2]:<10} | "
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
@@ -194,12 +198,14 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -233,12 +239,14 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -277,12 +285,14 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -318,12 +328,14 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -368,12 +380,14 @@ while True:
         # print results neatly
         if results:
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -418,12 +432,14 @@ while True:
         # print results neatly
         if results:
             print(
-                "Pokedex Number | Pokemon | Generation | Region | "
+                "Pokedex Number | Pokemon                       "
+                "| Generation | Region | "
                 "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<30} "
+                    f"| {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
