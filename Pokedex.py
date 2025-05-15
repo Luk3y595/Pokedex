@@ -418,8 +418,8 @@ while True:
         # print results neatly
         if results:
             print(
-                ("Pokedex Number | Pokemon | Generation | Region | "
-                 "Evolution Stage | Types")
+                "Pokedex Number | Pokemon | Generation | Region | "
+                "Evolution Stage | Types"
             )
             for pokemon in results:
                 print(
