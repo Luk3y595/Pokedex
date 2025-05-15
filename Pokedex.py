@@ -12,6 +12,7 @@ def print_all_pokemon():
     """Print all Pokémon in the database"""
     db = sqlite3.connect(DATABASE)
     cursor = db.cursor()
+    # search for all pokemon
     sql = ("SELECT "
            "pokedex_number, "
            "pokemon, "
@@ -34,6 +35,7 @@ def print_all_pokemon():
            "GROUP BY Pokedex.pokedex_id;")
     cursor.execute(sql)
     results = cursor.fetchall()
+    # print results neatly
     print(
         ("Pokedex Number | Pokemon | Generation | Region | "
          "Evolution Stage | Types")
@@ -48,6 +50,7 @@ def print_all_pokemon():
 
 # Main code for pokedex user input
 while True:
+    # ask for user input
     user_input = input(
         "\nWhat would you like to do?\n "
         "1. Search for all Pokémon\n "
@@ -69,9 +72,11 @@ while True:
                              "1. By name\n"
                              "2. By Pokedex number\n")
         if pokemon_name == "1":
+            # ask for name of pokemon
             name = input("Enter the name of the Pokémon: ")
             db = sqlite3.connect(DATABASE)
             cursor = db.cursor()
+            # search for pokemon by name
             cursor.execute(
                 "SELECT pokedex_number, "
                 "pokemon, "
@@ -95,6 +100,7 @@ while True:
                 (f"%{name}%",)
             )
             results = cursor.fetchall()
+            # print results neatly
             if results:
                 print(
                     "Pokedex Number | Pokemon | Generation | Region | "
@@ -107,12 +113,15 @@ while True:
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
             else:
+                # if no results print message
                 print("No Pokémon found with that name.")
             db.close()
         elif pokemon_name == "2":
+            # ask for number of pokemon
             number = input("Enter the Pokedex number of the Pokémon(1-1025): ")
             db = sqlite3.connect(DATABASE)
             cursor = db.cursor()
+            # search for pokemon by number
             cursor.execute(
                 "SELECT pokedex_number, pokemon, Pokedex.generation, "
                 "Generation.region, Evolution_Stage.evolution_stage, "
@@ -133,6 +142,7 @@ while True:
             )
             results = cursor.fetchall()
             if results:
+                # print results neatly
                 print(
                     "Pokedex Number | Pokemon | Generation | Region | "
                     "Evolution Stage | Types"
@@ -144,6 +154,7 @@ while True:
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
             else:
+                # if no results print message
                 print("No Pokémon found with that number.")
             db.close()
         else:
@@ -164,6 +175,7 @@ while True:
                            )
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by generation
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -180,6 +192,7 @@ while True:
         )
         results = cursor.fetchall()
         if results:
+            # print results neatly
             print(
                 "Pokedex Number | Pokemon | Generation | Region | "
                 "Evolution Stage | Types"
@@ -190,6 +203,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("That generation has no Pokémon.")
         db.close()
     elif user_input == "4":
@@ -200,6 +214,7 @@ while True:
         )
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by region
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -216,6 +231,7 @@ while True:
         )
         results = cursor.fetchall()
         if results:
+            # print results neatly
             print(
                 "Pokedex Number | Pokemon | Generation | Region | "
                 "Evolution Stage | Types"
@@ -226,6 +242,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("That region has no Pokémon.")
         db.close()
     elif user_input == "5":
@@ -238,6 +255,7 @@ while True:
         )
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by evolution stage
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -257,6 +275,7 @@ while True:
         )
         results = cursor.fetchall()
         if results:
+            # print results neatly
             print(
                 "Pokedex Number | Pokemon | Generation | Region | "
                 "Evolution Stage | Types"
@@ -267,6 +286,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("That is not a valid evolution stage.")
         db.close()
     elif user_input == "6":
@@ -276,6 +296,7 @@ while True:
         )
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by regional form
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -295,6 +316,7 @@ while True:
         )
         results = cursor.fetchall()
         if results:
+            # print results neatly
             print(
                 "Pokedex Number | Pokemon | Generation | Region | "
                 "Evolution Stage | Types"
@@ -305,6 +327,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("That is not a valid regional form.")
         db.close()
     elif user_input == "7":
@@ -317,6 +340,7 @@ while True:
         typing3 = typing.capitalize()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by typing
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -335,6 +359,7 @@ while True:
             (typing3.strip(),)
         )
         results = cursor.fetchall()
+        # print results neatly
         if results:
             print(
                 "Pokedex Number | Pokemon | Generation | Region | "
@@ -346,6 +371,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("No Pokémon found with that typing.")
     elif user_input == "8":
         # Search for Pokémon with specific dual typings
@@ -363,6 +389,7 @@ while True:
         typing22 = typing2.capitalize()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
+        # search for pokemon by their dual typing
         cursor.execute(
             "SELECT pokedex_number, pokemon, Pokedex.generation, "
             "Generation.region, Evolution_Stage.evolution_stage, "
@@ -382,6 +409,7 @@ while True:
             (typing11.strip(), typing22.strip())
         )
         results = cursor.fetchall()
+        # print results neatly
         if results:
             print(
                 ("Pokedex Number | Pokemon | Generation | Region | "
@@ -393,6 +421,7 @@ while True:
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
+            # if no results print message
             print("No Pokémon found with those typings.")
         db.close()
     elif user_input == "9":
