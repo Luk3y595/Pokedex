@@ -42,7 +42,7 @@ def print_all_pokemon():
     )
     for pokemon in results:
         print(
-            f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+            f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
             f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
         )
     db.close()
@@ -108,7 +108,7 @@ while True:
                 )
                 for pokemon in results:
                     print(
-                        f"{pokemon[0]:<15} | {pokemon[1]:<7} | "
+                        f"{pokemon[0]:<14} | {pokemon[1]:<7} | "
                         f"{pokemon[2]:<10} | "
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
@@ -149,7 +149,7 @@ while True:
                 )
                 for pokemon in results:
                     print(
-                        f"{pokemon[0]:<15} | {pokemon[1]:<7} | "
+                        f"{pokemon[0]:<14} | {pokemon[1]:<7} | "
                         f"{pokemon[2]:<10} | "
                         f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                     )
@@ -199,7 +199,7 @@ while True:
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -238,7 +238,7 @@ while True:
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -282,7 +282,7 @@ while True:
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -323,7 +323,7 @@ while True:
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
@@ -373,7 +373,7 @@ while True:
             )
             for pokemon in results:
                 print(
-                    f"{pokemon[0]:<15} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
+                    f"{pokemon[0]:<14} | {pokemon[1]:<7} | {pokemon[2]:<10} | "
                     f"{pokemon[3]:<6} | {pokemon[4]:<15} | {pokemon[5]:<5}"
                 )
         else:
