@@ -218,6 +218,7 @@ while True:
             "Enter the region (Kanto, Johto, Hoenn, Sinnoh, Unova, Kalos, "
             "Alola, Galar, Hisui, Paldea): "
         )
+        region_title = region.title()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         # search for pokemon by region
@@ -233,7 +234,7 @@ while True:
             "JOIN Generation ON Pokedex.generation = Generation.generation "
             "WHERE Generation.region = ? "
             "GROUP BY Pokedex.pokedex_id",
-            (region,)
+            (region_title,)
         )
         results = cursor.fetchall()
         if results:
@@ -261,6 +262,7 @@ while True:
                 "2nd Evolution): "
             )
         )
+        evolution_stage_title = evolution_stage.title()
         db = sqlite3.connect(DATABASE)
         cursor = db.cursor()
         # search for pokemon by evolution stage
@@ -279,7 +281,7 @@ while True:
             "Generation.generation "
             "WHERE Evolution_Stage.evolution_stage = ? "
             "GROUP BY Pokedex.pokedex_id",
-            (evolution_stage,)
+            (evolution_stage_title,)
         )
         results = cursor.fetchall()
         if results:
