@@ -105,7 +105,7 @@ while True:
             # print results neatly
             if results:
                 print(
-                    "Pokedex Number | Pokemon                       "
+                    "Pokedex Number | Pokemon                        "
                     "| Generation | Region | "
                     "Evolution Stage | Types"
                 )
@@ -141,13 +141,13 @@ while True:
                 "Generation.generation "
                 "WHERE pokedex_number = ? "
                 "GROUP BY Pokedex.pokedex_id",
-                (f"%{number}%",)
+                (number,)
             )
             results = cursor.fetchall()
             if results:
                 # print results neatly
                 print(
-                    "Pokedex Number | Pokemon                       "
+                    "Pokedex Number | Pokemon                        "
                     "| Generation | Region | "
                     "Evolution Stage | Types"
                 )
@@ -198,7 +198,7 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon                       "
+                "Pokedex Number | Pokemon                        "
                 "| Generation | Region | "
                 "Evolution Stage | Types"
             )
@@ -239,7 +239,7 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon                       "
+                "Pokedex Number | Pokemon                        "
                 "| Generation | Region | "
                 "Evolution Stage | Types"
             )
@@ -285,7 +285,7 @@ while True:
         if results:
             # print results neatly
             print(
-                "Pokedex Number | Pokemon                       "
+                "Pokedex Number | Pokemon                        "
                 "| Generation | Region | "
                 "Evolution Stage | Types"
             )
@@ -380,7 +380,7 @@ while True:
         # print results neatly
         if results:
             print(
-                "Pokedex Number | Pokemon                       "
+                "Pokedex Number | Pokemon                        "
                 "| Generation | Region | "
                 "Evolution Stage | Types"
             )
@@ -432,7 +432,7 @@ while True:
         # print results neatly
         if results:
             print(
-                "Pokedex Number | Pokemon                       "
+                "Pokedex Number | Pokemon                        "
                 "| Generation | Region | "
                 "Evolution Stage | Types"
             )
